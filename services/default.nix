@@ -4,6 +4,7 @@
     inputs.agenix.nixosModules.default
     ./registry.nix
     ./riotinto.nix
+    ./overleaf.nix
   ];
 
 
@@ -25,6 +26,9 @@
     '';
     virtualHosts."api.tennis.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:3000
+    '';
+    virtualHosts."overleaf.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8082
     '';
   };
 
