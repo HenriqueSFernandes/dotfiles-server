@@ -5,6 +5,7 @@
     ./registry.nix
     ./riotinto.nix
     ./overleaf.nix
+    ./beszel.nix
   ];
 
 
@@ -29,6 +30,9 @@
     '';
     virtualHosts."overleaf.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8082
+    '';
+    virtualHosts."beszel.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8090
     '';
   };
 

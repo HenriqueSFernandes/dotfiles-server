@@ -4,4 +4,6 @@ in
 {
   "secrets/registry-htpasswd.age".publicKeys = [ server ];
   "secrets/rio-tinto-app-password.age".publicKeys = [ server ];
+  "secrets/beszel-agent-key.age".publicKeys = [ server ];
+  "secrets/beszel-agent-token.age".publicKeys = [ server ];
 }

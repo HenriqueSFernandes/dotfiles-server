@@ -8,5 +8,6 @@
     wget
     htop
     lazydocker
+    arion
   ];
 }

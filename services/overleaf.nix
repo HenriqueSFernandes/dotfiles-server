@@ -16,8 +16,10 @@
           OVERLEAF_APP_NAME = "Overleaf Henrique";
           OVERLEAF_SITE_URL = "https://overleaf.henriquesf.me";
           OVERLEAF_BEHIND_PROXY = "true";
+
           OVERLEAF_ADMIN_EMAIL = "me@henriquesf.me";
           OVERLEAF_EMAIL_FROM_ADDRESS = "overleaf@henriquesf.me";
+
           OVERLEAF_MONGO_URL = "mongodb://mongo:27017/sharelatex";
           OVERLEAF_MONGO_REPLICA_SET = "overleaf";
           OVERLEAF_REDIS_HOST = "redis";
@@ -40,7 +42,7 @@
       rs.initiate({
         _id: 'overleaf',
         members: [
-          { _id: 0, host: 'localhost:27017' }
+          { _id: 0, host: 'mongo:27017' }
         ]
       });
     ''}:/docker-entrypoint-initdb.d/mongodb-init-replica-set.js"
