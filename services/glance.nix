@@ -15,9 +15,10 @@
         image = "glanceapp/glance:latest";
         container_name = "glance";
         restart = "unless-stopped";
-        ports = [ "127.0.0.1:8080:8080" ];
+        ports = [ "127.0.0.1:8083:8080" ];
         volumes = [
           "/var/lib/glance/config:/app/config"
+          "/var/run/docker.sock:/var/run/docker.sock:ro"
         ];
       };
     };
