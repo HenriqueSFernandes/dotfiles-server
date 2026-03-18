@@ -1,5 +1,11 @@
 { pkgs, self, ... }:
 {
+  age.secrets.glance-env = {
+    file = ../secrets/glance-env.age;
+    path = "/run/agenix/glance-env";
+    owner = "root";
+    mode = "0444";
+  };
   # Create directory and copy config files on activation
   system.activationScripts.glance-config = ''
     mkdir -p /var/lib/glance/config
@@ -20,6 +26,7 @@
           "/var/lib/glance/config:/app/config"
           "/var/run/docker.sock:/var/run/docker.sock:ro"
         ];
+        env_file = [ "/run/agenix/glance-env" ];
       };
     };
 

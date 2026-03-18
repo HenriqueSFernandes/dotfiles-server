@@ -9,6 +9,8 @@
 
         - type: to-do
 
+        - $include: widgets/beszel.yml
+
         - type: rss
           limit: 10
           collapse-after: 3
