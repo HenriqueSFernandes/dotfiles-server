@@ -6,6 +6,7 @@
     ./riotinto.nix
     ./overleaf.nix
     ./beszel.nix
+    ./glance.nix
   ];
 
 
@@ -33,6 +34,9 @@
     '';
     virtualHosts."beszel.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8090
+    '';
+    virtualHosts."glance.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8083
     '';
   };
 

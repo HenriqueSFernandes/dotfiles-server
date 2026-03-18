@@ -11,7 +11,7 @@
   outputs = { self, nixpkgs, deploy-rs, ... }@inputs: {
     nixosConfigurations.rickycontabo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs self; };
       modules = [
         ./configuration.nix
         inputs.arion.nixosModules.arion
