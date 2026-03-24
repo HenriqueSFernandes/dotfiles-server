@@ -7,6 +7,7 @@
     ./overleaf.nix
     ./beszel.nix
     ./glance.nix
+    ./impact-sphere.nix
   ];
 
 
@@ -37,6 +38,9 @@
     '';
     virtualHosts."glance.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8083
+    '';
+    virtualHosts."impact.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8084
     '';
   };
 
