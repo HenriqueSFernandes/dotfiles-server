@@ -6,9 +6,13 @@
     deploy-rs.url = "github:serokell/deploy-rs";
     agenix.url = "github:ryantm/agenix";
     arion.url = "github:hercules-ci/arion";
+    comin = {
+      url = "github:nlewo/comin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, deploy-rs, ... }@inputs: {
+  outputs = { self, nixpkgs, deploy-rs, comin, ... }@inputs: {
     nixosConfigurations.rickycontabo = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs self; };
@@ -16,6 +20,7 @@
         ./configuration.nix
         inputs.arion.nixosModules.arion
         inputs.agenix.nixosModules.default
+        comin.nixosModules.comin
       ];
     };
     deploy.nodes.contabo = {

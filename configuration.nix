@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./packages.nix
     ./services
+    ./comin.nix
   ];
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
