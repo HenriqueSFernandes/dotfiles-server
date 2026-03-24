@@ -3,11 +3,18 @@
     ./hardware-configuration.nix
     ./packages.nix
     ./services
-    ./comin.nix
   ];
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     trusted-users = [ "root" "ricky" ];
+    substituters = [
+      "https://cache.nixos.org/" 
+      "https://impact-sphere-cache.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "ricky-server-cache.cachix.org-1:5aK6kpi4p4PxJ2//bwsSO4b9lL97GqE25bCX4vJd6zw="
+    ];
   };
   services.logrotate.checkConfig = false;
   environment.shellAliases = { nix-switch = "sudo nixos-rebuild switch --flake ~/dotfiles#rickycontabo"; };
