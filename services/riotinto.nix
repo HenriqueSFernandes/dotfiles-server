@@ -11,7 +11,7 @@
     rio-tinto.settings = {
       services = {
         api.service = {
-          image = "registry.henriquesf.me/rio-tinto-api:d11eba485f7779784e5cb9595af4a067393029ee";
+          image = "registry.henriquesf.me/rio-tinto-api:2174aa3709280b322377f1b8c0dad59780ad6f0b";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:3000:3000" ];
           volumes = [
@@ -25,7 +25,7 @@
         };
 
         frontend.service = {
-          image = "registry.henriquesf.me/rio-tinto-frontend:d11eba485f7779784e5cb9595af4a067393029ee";
+          image = "registry.henriquesf.me/rio-tinto-frontend:2174aa3709280b322377f1b8c0dad59780ad6f0b";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:8081:80" ];
         };
