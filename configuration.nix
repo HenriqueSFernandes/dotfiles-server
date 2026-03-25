@@ -10,7 +10,7 @@
     trusted-users = [ "root" "ricky" ];
     substituters = [
       "https://cache.nixos.org/" 
-      "https://impact-sphere-cache.cachix.org"
+      "https://ricky-server-cache.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
