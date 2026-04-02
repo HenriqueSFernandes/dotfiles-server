@@ -8,6 +8,7 @@
     ./beszel.nix
     ./glance.nix
     ./impact-sphere.nix
+    ./librechat.nix
   ];
 
 
@@ -41,6 +42,9 @@
     '';
     virtualHosts."impact.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8084
+    '';
+    virtualHosts."chat.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:3080
     '';
   };
 

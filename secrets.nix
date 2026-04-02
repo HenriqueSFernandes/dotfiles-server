@@ -7,4 +7,5 @@ in
   "secrets/beszel-agent-key.age".publicKeys = [ server ];
   "secrets/beszel-agent-token.age".publicKeys = [ server ];
   "secrets/glance-env.age".publicKeys = [ server ];
+  "secrets/librechat-env.age".publicKeys = [ server ];
 }
