@@ -13,7 +13,7 @@
         api.service = {
           image = "registry.henriquesf.me/rio-tinto-api:2c628e25abf56a29f0defecb12eb6ef68e7bc4c1";
           restart = "unless-stopped";
-          ports = [ "127.0.0.1:3000:3000" ];
+          ports = [ "127.0.0.1:8082:3000" ];
           volumes = [
             "rio-tinto-api-data:/data"
           ];

@@ -8,7 +8,7 @@
         restart = "always";
         stop_grace_period = "60s";
         depends_on = [ "mongo" "redis" ];
-        ports = [ "127.0.0.1:8082:80" ];
+        ports = [ "127.0.0.1:8087:80" ];
         volumes = [
           "/var/lib/sharelatex:/var/lib/overleaf"
         ];

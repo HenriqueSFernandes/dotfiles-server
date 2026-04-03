@@ -19,7 +19,7 @@
         image = "henrygd/beszel:latest";
         container_name = "beszel-hub";
         restart = "unless-stopped";
-        ports = [ "127.0.0.1:8090:8090" ];
+        ports = [ "127.0.0.1:8086:8090" ];
         volumes = [
           "beszel-data:/beszel_data"
           "beszel-socket:/beszel_socket"

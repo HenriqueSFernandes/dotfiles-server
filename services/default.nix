@@ -28,19 +28,22 @@
       reverse_proxy localhost:8081
     '';
     virtualHosts."api.tennis.henriquesf.me".extraConfig = ''
-      reverse_proxy localhost:3000
-    '';
-    virtualHosts."overleaf.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8082
-    '';
-    virtualHosts."beszel.henriquesf.me".extraConfig = ''
-      reverse_proxy localhost:8090
     '';
     virtualHosts."glance.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8083
     '';
     virtualHosts."impactsphere.org".extraConfig = ''
       reverse_proxy localhost:8084
+    '';
+    virtualHosts."dash.impactsphere.org".extraConfig = ''
+      reverse_proxy localhost:8085
+    '';
+    virtualHosts."beszel.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8086
+    '';
+    virtualHosts."overleaf.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8087
     '';
   };
 
