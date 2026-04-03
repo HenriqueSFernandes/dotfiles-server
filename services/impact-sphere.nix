@@ -13,7 +13,7 @@
     impact-sphere-dash.settings = {
       services = {
         website.service = {
-          image = "registry.henriquesf.me/impact-sphere-dash:latest";
+          image = "registry.henriquesf.me/impact-sphere-dash:b14ae20147d22d46ecbaf68c5dc10cc3eee2c5e8";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:8085:3000" ];
         };
