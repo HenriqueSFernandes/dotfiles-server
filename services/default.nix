@@ -39,7 +39,7 @@
     virtualHosts."glance.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8083
     '';
-    virtualHosts."impact.henriquesf.me".extraConfig = ''
+    virtualHosts."impactsphere.org".extraConfig = ''
       reverse_proxy localhost:8084
     '';
   };
