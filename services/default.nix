@@ -2,12 +2,13 @@
 {
   imports = [
     inputs.agenix.nixosModules.default
-    ./registry.nix
-    ./riotinto.nix
-    ./overleaf.nix
     ./beszel.nix
     ./glance.nix
     ./impact-sphere.nix
+    ./overleaf.nix
+    ./registry.nix
+    ./riotinto.nix
+    ./uptime.nix
   ];
 
 
@@ -24,10 +25,10 @@
     virtualHosts."registry.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8080
     '';
-    virtualHosts."tennis.henriquesf.me".extraConfig = ''
+    virtualHosts."api.tennis.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8081
     '';
-    virtualHosts."api.tennis.henriquesf.me".extraConfig = ''
+    virtualHosts."tennis.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8082
     '';
     virtualHosts."glance.henriquesf.me".extraConfig = ''
@@ -44,6 +45,12 @@
     '';
     virtualHosts."overleaf.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8087
+    '';
+    virtualHosts."uptime.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8088
+    '';
+    virtualHosts."status.impactsphere.org".extraConfig = ''
+      reverse_proxy localhost:8088
     '';
   };
 
