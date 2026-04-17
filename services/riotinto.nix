@@ -1,6 +1,6 @@
 { ... }:
 {
-  age.secrets.rio-tinto-app-password = {
+  age.secrets.rio-tinto-api-env = {
     file = ../secrets/rio-tinto-api-env.age;
     path = "/run/agenix/rio-tinto-api-env";
     owner = "root";
