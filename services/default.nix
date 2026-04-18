@@ -52,6 +52,9 @@
     virtualHosts."status.impactsphere.org".extraConfig = ''
       reverse_proxy localhost:8088
     '';
+    virtualHosts."status.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8088
+    '';
   };
 
   systemd.services.caddy.serviceConfig = {
