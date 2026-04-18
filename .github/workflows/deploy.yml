@@ -1,4 +1,5 @@
 name: Deploy NixOS
+
 on:
   push:
     branches: [ main ]
@@ -7,12 +8,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Install Nix
         uses: cachix/install-nix-action@v25
         with:
           nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
 
       - name: Install deploy-rs
         run: nix profile install github:serokell/deploy-rs
@@ -20,9 +24,42 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
+          ssh-keyscan -H 194.242.57.139 >> ~/.ssh/known_hosts
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H 194.242.57.139 >> ~/.ssh/known_hosts
 
-      - name: Deploy
-        run: deploy .#contabo -- --ssh-user root
+      - name: Deploy to Contabo
+        run: deploy .#contabo --skip-checks
+
+      - name: Send Telegram Success Notification
+        if: success()
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=format:"%s")
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          REPO_NAME=${{ github.repository }}
+
+          # Constructing the message with Line Breaks (%0A)
+          MESSAGE="🚀 *New Deployment Succeeded* %0A%0A"
+          MESSAGE+="📦 *Repo:* $REPO_NAME %0A"
+          MESSAGE+="🔗 *Commit:* [\`$COMMIT_HASH\`](https://github.com/$REPO_NAME/commit/$COMMIT_HASH) %0A"
+          MESSAGE+="📝 *Message:* $COMMIT_MSG"
+
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "text=$MESSAGE" \
+            -d "parse_mode=Markdown"
+
+      - name: Send Telegram Failure Alert
+        if: failure()
+        run: |
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          REPO_NAME=${{ github.repository }}
+
+          MESSAGE="❌ *Deployment Failed* %0A"
+          MESSAGE+="📦 *Repo:* $REPO_NAME %0A"
+          MESSAGE+="⚠️ Check the logs for commit [\`$COMMIT_HASH\`](https://github.com/$REPO_NAME/actions)"
+
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d "text=$MESSAGE" \
+            -d "parse_mode=Markdown"
