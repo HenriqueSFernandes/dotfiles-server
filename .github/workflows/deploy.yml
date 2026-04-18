@@ -18,6 +18,12 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
 
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v14
+        with:
+          name: ${{ secrets.CACHIX_NAME }}
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
       - name: Install deploy-rs
         run: nix profile install github:serokell/deploy-rs
 
@@ -29,7 +35,7 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
 
       - name: Deploy to Contabo
-        run: deploy .#contabo --skip-checks
+        run: deploy .#contabo --skip-checks --remote-build
 
       - name: Send Telegram Success Notification
         if: success()
