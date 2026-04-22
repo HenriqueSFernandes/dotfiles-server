@@ -16,6 +16,17 @@
   virtualisation.arion.projects = {
     rio-tinto.settings = {
       services = {
+
+        cloudbeaver.service = {
+          image = "dbeaver/cloudbeaver:latest";
+          restart = "unless-stopped";
+          ports = [ "127.0.0.1:8978:8978" ];
+          depends_on = [ "postgres" ];
+          volumes = [
+            "rio-tinto-cloudbeaver-data:/opt/cloudbeaver/workspace"
+          ];
+        };
+
         api.service = {
           image = "registry.henriquesf.me/rio-tinto-api:47d714e182f1a01c552c4ccb2cfc2a97d66c0a2d";
           restart = "unless-stopped";
@@ -52,6 +63,7 @@
       docker-compose.volumes = {
         rio-tinto-api-data = { };
         rio-tinto-postgres-data = { };
+        rio-tinto-cloudbeaver-data = { };
       };
     };
   };
