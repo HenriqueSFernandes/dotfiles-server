@@ -18,7 +18,7 @@
       services = {
 
         cloudbeaver.service = {
-          image = "dbeaver/cloudbeaver:latest";
+          image = "dbeaver/cloudbeaver:26.0.3";
           restart = "unless-stopped";
           ports = [ "100.85.101.65:8978:8978" ];
           depends_on = [ "postgres" ];
