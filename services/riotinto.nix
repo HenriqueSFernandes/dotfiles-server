@@ -20,7 +20,7 @@
         cloudbeaver.service = {
           image = "dbeaver/cloudbeaver:latest";
           restart = "unless-stopped";
-          ports = [ "127.0.0.1:8978:8978" ];
+          ports = [ "100.85.101.65:8978:8978" ];
           depends_on = [ "postgres" ];
           volumes = [
             "rio-tinto-cloudbeaver-data:/opt/cloudbeaver/workspace"
