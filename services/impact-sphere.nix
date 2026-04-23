@@ -4,7 +4,7 @@
     impact-sphere-site.settings = {
       services = {
         website.service = {
-          image = "registry.henriquesf.me/impact-sphere-site:c98dc8f126f02a2cf11291a15604718f09cabe0c";
+          image = "registry.henriquesf.me/impact-sphere-site:f614a0081f9cde4d67e83507852724e6345bd3b4";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:8084:3000" ];
         };
