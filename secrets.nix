@@ -9,4 +9,6 @@ in
   "secrets/glance-env.age".publicKeys = [ server ];
   "secrets/rio-tinto-db-env.age".publicKeys = [ server ];
   "secrets/rio-tinto-api-env.age".publicKeys = [ server ];
+  "secrets/impact-sphere-db-env.age".publicKeys = [ server ];
+  "secrets/impact-sphere-env.age".publicKeys = [ server ];
 }
