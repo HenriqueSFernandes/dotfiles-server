@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.agenix.nixosModules.default
+    ./populi.nix
     ./beszel.nix
     ./glance.nix
     ./impact-sphere.nix
@@ -54,6 +55,9 @@
     '';
     virtualHosts."status.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8088
+    '';
+    virtualHosts."populi.henriquesf.me".extraConfig = ''
+      reverse_proxy localhost:8089
     '';
   };
 

@@ -11,4 +11,6 @@ in
   "secrets/rio-tinto-api-env.age".publicKeys = [ server ];
   "secrets/impact-sphere-db-env.age".publicKeys = [ server ];
   "secrets/impact-sphere-env.age".publicKeys = [ server ];
+  "secrets/populi-env.age".publicKeys = [ server ];
+  "secrets/populi-db-env.age".publicKeys = [ server ];
 }
