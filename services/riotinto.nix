@@ -28,7 +28,7 @@
         };
 
         api.service = {
-          image = "registry.henriquesf.me/rio-tinto-api:47d714e182f1a01c552c4ccb2cfc2a97d66c0a2d";
+          image = "registry.henriquesf.me/rio-tinto-api:0f18f6e87ea8bd6385610cbf6fba02f998ce7aaf";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:8081:3000" ];
           volumes = [
@@ -45,7 +45,7 @@
         };
 
         frontend.service = {
-          image = "registry.henriquesf.me/rio-tinto-frontend:47d714e182f1a01c552c4ccb2cfc2a97d66c0a2d";
+          image = "registry.henriquesf.me/rio-tinto-frontend:0f18f6e87ea8bd6385610cbf6fba02f998ce7aaf";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:8082:80" ];
         };
