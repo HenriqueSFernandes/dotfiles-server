@@ -34,6 +34,7 @@
           image = "postgres:18-alpine";
           restart = "unless-stopped";
           env_file = [ "/run/agenix/populi-db-env" ];
+          ports = [ "127.0.0.1:8090:5432" ];
           volumes = [
             "populi-postgres-data:/var/lib/postgresql/"
           ];
