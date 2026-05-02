@@ -17,9 +17,8 @@
   virtualisation.arion.projects = {
     populi.settings = {
       services = {
-
         populi.service = {
-          image = "registry.henriquesf.me/populi:latest";
+          image = "registry.henriquesf.me/populi:cb6b57429acf3c0144b6e3b751f079b190debcbb";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:8089:3000" ];
           depends_on = [ "postgres" ];
@@ -28,7 +27,6 @@
           ];
           environment = {
             PORT = "3000";
-            DATA_DIR = "/data";
           };
         };
 
