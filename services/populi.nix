@@ -18,7 +18,7 @@
     populi.settings = {
       services = {
         populi.service = {
-          image = "registry.henriquesf.me/populi:84e3fa30f5ea3d189425d308fdcbf9b990786471";
+          image = "registry.henriquesf.me/populi:bfeb56cdb2f90b76523bf005efca95d8dee6fd05";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:8089:3000" ];
           depends_on = [ "postgres" ];
