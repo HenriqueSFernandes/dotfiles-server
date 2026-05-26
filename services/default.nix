@@ -62,6 +62,9 @@
     virtualHosts."db.populi.henriquesf.me".extraConfig = ''
       reverse_proxy localhost:8090
     '';
+    virtualHosts."st.henriquesf.me".extraConfig = ''
+      reverse_proxy 188.250.224.111:8096
+    '';
   };
 
   systemd.services.caddy.serviceConfig = {
