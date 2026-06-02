@@ -44,7 +44,7 @@
     }];
     defaultGateway = "194.242.57.1";
     nameservers = [ "8.8.8.8" "1.1.1.1" ];
-    firewall.allowedTCPPorts = [ 5000 6443 ];
+    firewall.allowedTCPPorts = [ 5000 6443 80 443 ];
   };
 
   services.openssh.enable = true;

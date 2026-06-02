@@ -80,6 +80,4 @@
   };
 
   virtualisation.arion.backend = "docker";
-
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
 }
