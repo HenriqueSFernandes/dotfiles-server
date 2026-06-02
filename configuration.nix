@@ -44,13 +44,17 @@
     }];
     defaultGateway = "194.242.57.1";
     nameservers = [ "8.8.8.8" "1.1.1.1" ];
-    firewall.allowedTCPPorts = [ 5000 ];
+    firewall.allowedTCPPorts = [ 5000 6443 ];
   };
 
   services.openssh.enable = true;
   system.stateVersion = "23.11";
   services = {
     tailscale.enable = true;
+    k3s = {
+      enable = true;
+      role = "server";
+    };
   };
 
   programs.nix-ld.enable = true;
