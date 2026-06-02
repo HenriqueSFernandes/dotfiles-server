@@ -3,6 +3,10 @@
 {
   environment.systemPackages = with pkgs; [
     git
+    kubectl
+    k9s
+    argocd
+    argonaut
     ghostty.terminfo
     vim
     curl
