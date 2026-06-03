@@ -33,6 +33,7 @@
         postgres.service = {
           image = "postgres:18-alpine";
           restart = "unless-stopped";
+          ports = [ "127.0.0.1:8091:5432" ];
           env_file = [ "/run/agenix/impact-sphere-db-env" ];
           volumes = [
             "impact-sphere-postgres-data:/var/lib/postgresql/data"
