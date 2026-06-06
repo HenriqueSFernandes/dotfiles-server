@@ -25,7 +25,7 @@
     impact-sphere-dash.settings = {
       services = {
         website.service = {
-          image = "registry.henriquesf.me/impact-sphere-dash:1fac9cb0cabf55f18bdcbaa0690a7e6dffaee595";
+          image = "registry.henriquesf.me/impact-sphere-dash:e2d1c37a05e0af1c9c4713e22e1c5ed99a658e9e";
           restart = "unless-stopped";
           ports = [ "127.0.0.1:8085:3000" ];
           env_file = [ "/run/agenix/impact-sphere-env" ];
