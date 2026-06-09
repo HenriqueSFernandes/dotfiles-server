@@ -63,10 +63,10 @@
       reverse_proxy localhost:8090
     '';
     virtualHosts."flix.henriquesf.me".extraConfig = ''
-      reverse_proxy 188.80.109.96:8096
+      reverse_proxy 100.85.35.47:8096
     '';
     virtualHosts."seerr.henriquesf.me".extraConfig = ''
-      reverse_proxy 188.80.109.96:5055
+      reverse_proxy 100.85.35.47:5055
     '';
   };
 
