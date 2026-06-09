@@ -69,6 +69,22 @@
       reverse_proxy 100.85.35.47:8096
     '';
     virtualHosts."seerr.henriquesf.me".extraConfig = ''
+      @cors_preflight {
+        method OPTIONS
+      }
+      handle @cors_preflight {
+        header Access-Control-Allow-Origin "https://flix.henriquesf.me"
+        header Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+        header Access-Control-Allow-Headers "X-Requested-With,Content-Type,Authorization,X-Api-Key,Accept,Origin"
+        header Access-Control-Allow-Credentials "true"
+        respond "" 204
+      }
+
+      header Access-Control-Allow-Origin "https://flix.henriquesf.me"
+      header Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+      header Access-Control-Allow-Headers "X-Requested-With,Content-Type,Authorization,X-Api-Key,Accept,Origin"
+      header Access-Control-Allow-Credentials "true"
+
       reverse_proxy 100.85.35.47:5055
     '';
   };
