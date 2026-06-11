@@ -32,6 +32,14 @@
     ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBbtGZQgH5e1S7hu051720S1FZp423tQwH8m7nbFM66+ ricky@ricky-desktop''
   ];
 
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+    efiSupport = false;
+    forceInstall = true;
+    copyKernels = true;
+  };
+
   boot.tmp.cleanOnBoot = true;
   zramSwap.enable = true;
   networking = {
